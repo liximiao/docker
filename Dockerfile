@@ -1,4 +1,5 @@
 FROM centos:latest
+MAINTAINER hipols87@gmail.com
 
 # Add repo
 RUN yum install -y curl rpm
@@ -14,14 +15,8 @@ RUN yum install -y libmcrypt-devel libxml2-devel bzip2-devel libjpeg-devel openl
 libcurl-devel libssh2 libssh2-devel gcc openssl-devel unixODBC-devel libpng-devel freetype-devel libc-client-devel readline-devel make autoconf libmemcached-devel.x86_64 glibc-common
 
 # Install wget and other
-RUN yum install -y wget nano telnet mc
-
-# Add a local repository
-ADD pb.repo /etc/yum.repos.d/
-
-# Add gpgkey
-RUN wget http://rpm.web.it.loc/gpgkey -O /tmp/gpgkey &&  rpm --import /tmp/gpgkey && rm -f /tmp/gpgkey
+RUN yum install -y wget nano telnet mc ftp
 
 # Install unixODBC
 ADD /unixODBC/unixODBC.sh /opt
-RUN chmod a+x /opt/unixODBC.sh && /opt/unixODBC.sh
+RUN chmod +x /opt/unixODBC.sh && sync && /opt/unixODBC.sh
