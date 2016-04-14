@@ -24,4 +24,4 @@ RUN wget http://rpm.web.it.loc/gpgkey -O /tmp/gpgkey &&  rpm --import /tmp/gpgke
 
 # Install unixODBC
 ADD /unixODBC/unixODBC.sh /opt
-RUN chmod a+x /opt/unixODBC.sh && ./unixODBC.sh
+RUN chmod a+x /opt/unixODBC.sh && /opt/unixODBC.sh
