@@ -26,8 +26,8 @@ ADD /freeTDS/freeTDS.sh /opt
 RUN chmod +x /opt/freeTDS.sh && sync && /opt/freeTDS.sh
 
 #############################################Add config#############################################
-COPY odbc.ini /opt/unixODBC/etc/
-COPY odbcinst.ini /opt/unixODBC/etc/
+COPY /unixODBC/odbc.ini /opt/unixODBC/etc/
+COPY /unixODBC/odbcinst.ini /opt/unixODBC/etc/
 RUN cd /opt/freetds/etc/ && rm freetds.conf
-COPY freetds.conf /opt/freetds/etc/
-COPY locales.conf /opt/freetds/etc/
+COPY /freeTDS/freetds.conf /opt/freetds/etc/
+COPY /freeTDS/locales.conf /opt/freetds/etc/
