@@ -20,3 +20,14 @@ RUN yum install -y wget nano telnet mc ftp
 # Install unixODBC
 ADD /unixODBC/unixODBC.sh /opt
 RUN chmod +x /opt/unixODBC.sh && sync && /opt/unixODBC.sh
+
+# Install freeTDS
+ADD /freeTDS/freeTDS.sh /opt
+RUN chmod +x /opt/freeTDS.sh && sync && /opt/freeTDS.sh
+
+#############################################Add config#############################################
+COPY odbc.ini /opt/unixODBC/etc/
+COPY odbcinst.ini /opt/unixODBC/etc/
+RUN cd /opt/freetds/etc/ && rm freetds.conf
+COPY freetds.conf /opt/freetds/etc/
+COPY locales.conf /opt/freetds/etc/
