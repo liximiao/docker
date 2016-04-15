@@ -18,12 +18,16 @@ libcurl-devel libssh2 libssh2-devel gcc openssl-devel unixODBC-devel libpng-deve
 RUN yum install -y wget nano telnet mc ftp
 
 # Install unixODBC
-ADD /unixODBC/unixODBC.sh /opt
+ADD /soft/unixODBC/unixODBC.sh /opt
 RUN chmod +x /opt/unixODBC.sh && sync && /opt/unixODBC.sh
 
 # Install freeTDS
-ADD /freeTDS/freeTDS.sh /opt
+ADD /soft/freeTDS/freeTDS.sh /opt
 RUN chmod +x /opt/freeTDS.sh && sync && /opt/freeTDS.sh
+
+# Install php-fpm
+ADD /soft/php/php.sh /opt
+RUN chmod +x /opt/php.sh && sync && /opt/php.sh
 
 #############################################Add config#############################################
 COPY /unixODBC/odbc.ini /opt/unixODBC/etc/
