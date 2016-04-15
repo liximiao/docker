@@ -30,8 +30,8 @@ ADD /soft/php/php.sh /opt
 RUN chmod +x /opt/php.sh && sync && /opt/php.sh
 
 #############################################Add config#############################################
-COPY /unixODBC/odbc.ini /opt/unixODBC/etc/
-COPY /unixODBC/odbcinst.ini /opt/unixODBC/etc/
+COPY /soft/unixODBC/odbc.ini /opt/unixODBC/etc/
+COPY /soft/unixODBC/odbcinst.ini /opt/unixODBC/etc/
 RUN cd /opt/freetds/etc/ && rm freetds.conf
-COPY /freeTDS/freetds.conf /opt/freetds/etc/
-COPY /freeTDS/locales.conf /opt/freetds/etc/
+COPY /soft/freeTDS/freetds.conf /opt/freetds/etc/
+COPY /soft/freeTDS/locales.conf /opt/freetds/etc/

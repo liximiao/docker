@@ -3,7 +3,7 @@ PHP_VERSION=5.6.20
 # install php-fpm local files storage
 # curl -O http://soft.web.it.loc/data/php-$PHP_VERSION.tar.gz \
 # install php-fpm from the official site
-wget http://ua2.php.net/get/php-$PHP_VERSION.tar.gz/from/this/mirror \
+wget -O php-$PHP_VERSION.tar.gz http://ua2.php.net/get/php-$PHP_VERSION.tar.gz/from/this/mirror \
     && tar -zxf php-$PHP_VERSION.tar.gz \
     && cd php-$PHP_VERSION \
 		&& ./configure \
